@@ -9,7 +9,7 @@ import path from 'path';
 import { FlatCompat } from '@eslint/eslintrc';
 import { fileURLToPath } from 'url';
 
-// Setup FlatCompat for legacy configs
+// FlatCompat para configuraciones legado
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const compat = new FlatCompat({
@@ -18,26 +18,20 @@ const compat = new FlatCompat({
 });
 
 export default defineConfig([
-  // Ignore patterns
+  // Ignorar patrones
   {
     ignores: [
       'node_modules/',
       'dist/',
       'build/',
-      '.stryker-tmp/',
       'coverage/',
-      'src/env-config.js',
-      'webpack.config.js',
-      'webpack.common.js',
-      'webpack.dev.js',
-      'webpack.prod.js',
       'jest.config.js',
       'env.sh',
       'eslint.config.mjs',
     ],
   },
 
-  // JS/JSX base config
+  // Configuracion base JS/JSX
   {
     files: ['**/*.js', '**/*.jsx'],
     languageOptions: {
@@ -53,7 +47,7 @@ export default defineConfig([
     },
   },
 
-  // TypeScript config
+  // Configuracion base TS/TSX
   {
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
@@ -69,28 +63,34 @@ export default defineConfig([
     },
     settings: {
       react: { version: 'detect' },
+      'import/resolver': {
+        typescript: {
+          // Use your tsconfig.json
+          project: './tsconfig.json',
+        },
+      },
     },
   },
 
-  // ESLint recommended
+  // ESLint reglas recomendadas
   js.configs.recommended,
 
-  // TypeScript recommended
+  // TypeScript reglas recomendadas
   tseslint.configs.recommended,
 
-  // React recommended
+  // React reglas recomendadas
   pluginReact.configs.flat.recommended,
 
-  // Airbnb config (legacy, via FlatCompat)
+  // Se extienden las reglas con las de Airbnb (legado)
   ...compat.extends('airbnb'),
 
-  // React Hooks recommended
+  // React Hooks reglas recomendadas
   {
     plugins: { 'react-hooks': pluginReactHooks },
     rules: pluginReactHooks.configs.recommended.rules,
   },
 
-  // Custom rules
+  // Reglas personalizadas
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
     rules: {
@@ -109,9 +109,27 @@ export default defineConfig([
         1,
         { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
       ],
+      'import/extensions': [
+        'error',
+        'ignorePackages',
+        {
+          js: 'never',
+          jsx: 'never',
+          ts: 'never',
+          tsx: 'never',
+        },
+      ],
+      'import/no-unresolved': [
+        'error',
+        {
+          ignore: ['.ts', '.tsx'],
+        },
+      ],
       'jsx-a11y/click-events-have-key-events': 'off',
       'jsx-a11y/no-static-element-interactions': 'off',
       'react/jsx-no-bind': ['warn', { allowArrowFunctions: true }],
+      'no-restricted-exports': ['off'],
+      'import/prefer-default-export': 'off',
       'import/no-extraneous-dependencies': [
         'error',
         {
@@ -123,7 +141,7 @@ export default defineConfig([
     },
   },
 
-  // Prettier integration (legacy, via FlatCompat)
+  // Integracion Prettier (legado con FlatCompat)
   ...compat.extends('plugin:prettier/recommended'),
   {
     rules: {

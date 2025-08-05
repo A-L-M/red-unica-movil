@@ -3,18 +3,18 @@ import React from 'react';
 import './Boton.scss';
 
 interface Props {
-  etiqueta: string;
-  onClick(): void;
-  submit: boolean;
-  deshabilitar: boolean;
-  estilo: number;
+  etiqueta?: string;
+  onClick?(): void;
+  submit?: boolean;
+  deshabilitado?: boolean;
+  estilo?: number;
 }
 
 const Boton = ({
   etiqueta = 'Continuar',
-  onClick,
+  onClick = () => {},
   submit = false,
-  deshabilitar = false,
+  deshabilitado = false,
   estilo = 1,
 }: Props) => {
   return (
@@ -22,7 +22,7 @@ const Boton = ({
       className={`boton estilo-${estilo}`}
       type={submit ? 'submit' : 'button'}
       onClick={onClick}
-      disabled={deshabilitar}
+      disabled={deshabilitado}
     >
       {etiqueta}
     </button>
