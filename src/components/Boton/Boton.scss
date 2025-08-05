@@ -1,0 +1,51 @@
+@use '../../variables.scss';
+
+.boton {
+  display: flex;
+  width: 242px;
+  height: 40px;
+  padding: 8px 0px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  transition: all 0.2s;
+
+  font:
+    600 14px/136% FigTree,
+    sans-serif;
+
+  &.estilo-1 {
+    color: var(--backgrounds-white, #fffffe);
+    background: var(--buttons-able, #3aa925);
+  }
+
+  &.estilo-2 {
+    background: var(--backgrounds-white, #fffffe);
+    border: 1px solid var(--buttons-able, #3aa925);
+    color: var(--buttons-able, #3aa925);
+  }
+
+  &.estilo-3 {
+    background: var(--primary-main, #056341);
+    border: 1px solid var(--backgrounds-white, #fffffe);
+    color: var(--backgrounds-white, #fffffe);
+  }
+
+  &.estilo-1:disabled {
+    background: var(--buttons-disable, #bac0c4);
+    color: var(--backgrounds-white, #fffffe);
+    border: none;
+    cursor: default;
+  }
+
+  &.estilo-2:disabled {
+    background: var(--backgrounds-white, #fffffe);
+    color: var(--buttons-disable, #bac0c4);
+    border: 1px solid var(--buttons-disable, #bac0c4);
+    cursor: default;
+  }
+}
+
+.boton:enabled:active {
+  filter: brightness(110%);
+}
