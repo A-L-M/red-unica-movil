@@ -13,7 +13,7 @@ interface Props {
 }
 
 const Boton = ({
-  className = '',
+  className,
   etiqueta = 'Continuar',
   onClick = () => {},
   submit = false,
