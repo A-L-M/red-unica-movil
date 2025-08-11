@@ -9,7 +9,7 @@ interface Props {
   submit?: boolean;
   deshabilitado?: boolean;
   variacion?: number;
-  estilo?: object;
+  estilo?: React.CSSProperties;
 }
 
 const Boton = ({
@@ -23,7 +23,7 @@ const Boton = ({
 }: Props) => {
   return (
     <button
-      className={`boton estilo-${variacion} ${className}`}
+      className={className ?? `boton variacion-${variacion}`}
       type={submit ? 'submit' : 'button'}
       onClick={onClick}
       disabled={deshabilitado}

@@ -1,6 +1,6 @@
 {
   "name": "@A-L-M/red-unica-movil",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Librería de componentes para la versión móvil de SAC",
   "scripts": {
     "build": "tsc",
