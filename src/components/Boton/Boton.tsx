@@ -23,7 +23,7 @@ const Boton = ({
 }: Props) => {
   return (
     <button
-      className={className ?? `boton variacion-${variacion}`}
+      className={className ?? `LRUM-boton variacion-${variacion}`}
       type={submit ? 'submit' : 'button'}
       onClick={onClick}
       disabled={deshabilitado}
