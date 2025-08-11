@@ -44,8 +44,8 @@
     border: 1px solid var(--buttons-disable, #bac0c4);
     cursor: default;
   }
-}
 
-.boton:enabled:active {
-  filter: brightness(110%);
+  &:enabled:active {
+    filter: brightness(110%);
+  }
 }
