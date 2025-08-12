@@ -2,12 +2,10 @@
 
 .LRUM-boton {
   display: flex;
-  // width debe ir encima de max-width
-  // Fuente: https://stackoverflow.com/questions/6456468/css-width-and-max-width
   width: 100%;
   max-width: 242px;
   height: 40px;
-  padding: 8px 0px;
+  padding: 8px 12px;
   justify-content: center;
   align-items: center;
   border-radius: 12px;

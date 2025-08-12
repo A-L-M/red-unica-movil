@@ -1,0 +1,26 @@
+@use '../../variables.scss';
+
+.LRUM-boton-texto {
+  margin: 0 auto;
+  font:
+    600 14px/136% FigTree,
+    sans-serif;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: 2px;
+  text-underline-position: from-font;
+
+  &.variacion-1 {
+    color: var(--buttons-able, #3aa925);
+  }
+
+  &.variacion-2 {
+    color: var(--buttons-disable, #bac0c4);
+  }
+
+  &.variacion-3 {
+    color: var(--text-white, #fffffa);
+  }
+}
