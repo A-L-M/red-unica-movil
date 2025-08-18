@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
+
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import dts from 'rollup-plugin-dts';
 import postcss from 'rollup-plugin-postcss';
 
+const url = require('postcss-url');
 const packageJson = require('./package.json');
 
 export default [
@@ -25,7 +28,15 @@ export default [
       resolve(),
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
-      postcss(),
+      postcss({
+        plugins: [
+          url({
+            url: 'inline', // enable inline assets using base64 encoding
+            maxSize: 10, // maximum file size to inline (in kilobytes)
+            fallback: 'copy', // fallback method to use if max size is exceeded
+          }),
+        ],
+      }),
     ],
   },
   {
