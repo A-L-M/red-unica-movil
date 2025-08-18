@@ -41,7 +41,8 @@
     opacity: 0;
     pointer-events: none;
     transition: opacity 120ms ease-in-out;
-    background: url('/assets/check-solo.svg') no-repeat calc(50% - 1px) center;
+    background: url('../../../recursos/iconos/check-solo.svg') no-repeat
+      calc(50% - 1px) center;
     background-size: 16px 16px;
   }
 
