@@ -1,0 +1,57 @@
+@use '../../variables.scss';
+
+.LRUM-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+
+  .texto {
+    color: var(--text-main, #393648);
+    font:
+      400 13px/136% FigTree,
+      sans-serif;
+  }
+
+  input[type='checkbox'] {
+    appearance: none;
+    display: block;
+    position: relative;
+    background-color: var(--backgrounds-white, #fffffe);
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    border: 1.6px solid var(--buttons-able, #3aa925);
+    border-radius: 0.35em;
+  }
+
+  input[type='checkbox']::after {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 120ms ease-in-out;
+    background: url('../../../recursos/iconos/check-solo.svg') no-repeat
+      calc(50% - 1px) center;
+    background-size: 16px 16px;
+  }
+
+  input[type='checkbox']:checked::after {
+    opacity: 1;
+  }
+
+  .deshabilitar {
+    filter: grayscale(1);
+    color: var(--text-subtext1, #8c94a2);
+  }
+}
