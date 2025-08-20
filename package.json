@@ -68,5 +68,8 @@
   "types": "dist/index.d.ts",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/A-L-M"
+  },
+  "dependencies": {
+    "@rollup/plugin-image": "^3.0.3"
   }
 }
